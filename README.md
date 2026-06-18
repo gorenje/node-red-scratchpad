@@ -10,29 +10,37 @@ The scratch-pad is used to store content between edits.
 
 ## Features
 
-- Add Scratch-pads
-
-Use the add button to create new scratch-pads and use the delete button to remove them again.
+### Add Scratch-pads
 
 ![img](https://cdn.openmindmap.org/content/scratchpad-add-button.png)
 
+Use the add button to create new scratch-pads and use the delete button to remove them again.
+
 A trashcan clears the contents of the scratch-pad but does not remove the scratch-pad.
 
-- Copy & Paste
-
-Take content and store it in a scratch-pad for later usage. Use the copy button to copy content to the clipboard for pasting into a node edit.
+### Copy & Paste
 
 ![img](https://cdn.openmindmap.org/content/scratchpad-copy-and-paste.png)
 
-- Compare
+Take content and store it in a scratch-pad for later usage. Use the copy button to copy content to the clipboard for pasting into a node edit.
 
-Compare two scratch-pads for difference. Use the compare button first by highlighting one scratch-pad and then the second to compare the two.
+
+### Compare
 
 ![img](https://cdn.openmindmap.org/content/scratchpad-compare.png)
 
-- Storage between reloads
+Compare two scratch-pads for difference. Use the compare button first by highlighting one scratch-pad and then the second to compare the two.
 
-Contents of scratch-pads can be stored for later usage. Use the save button to store the content into the flows.json file for later usage.
+
+### Storage between reloads
 
 ![img](https://cdn.openmindmap.org/content/scratchpad-store.png)
 
+Contents of scratch-pads can be stored for later usage. Use the save button to store the content into the flows.json file for later usage.
+
+## Artifacts
+
+- [@ flowhub.org](https://flowhub.org/f/cbd4eeb40f5d6e10)
+- [@ github.com](https://github.com/gorenje/node-red-scratchpad)
+- [@ npmjs.com](https://www.npmjs.com/package/@gregoriusrippenstein/node-red-scratchpad)
+- [@ flows.nodered.org](https://flows.nodered.org/node/@gregoriusrippenstein/node-red-scratchpad)
