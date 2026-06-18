@@ -44,3 +44,4 @@ Contents of scratch-pads can be stored for later usage. Use the save button to s
 - [@ github.com](https://github.com/gorenje/node-red-scratchpad)
 - [@ npmjs.com](https://www.npmjs.com/package/@gregoriusrippenstein/node-red-scratchpad)
 - [@ flows.nodered.org](https://flows.nodered.org/node/@gregoriusrippenstein/node-red-scratchpad)
+- [@ forum](https://discourse.nodered.org/t/scratchpad-store-contents-between-edits/101304)
