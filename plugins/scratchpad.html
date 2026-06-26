@@ -224,7 +224,7 @@ function ensureYourConfigNodeExists() {
 
          addScratch()
          addEventHandlers(globalYourConfigNode)
-      })
+      });
 
       // do this after the config node has become available
       let initialiseSidebarForm = () => {
@@ -234,7 +234,7 @@ function ensureYourConfigNodeExists() {
          
          globalYourConfigNode.scratches.forEach( sth => {
             addScratch()
-         })
+         });
 
          $(".scratchpad-content").map( (idx,obj) => {
             if ( typeof globalYourConfigNode.scratches[idx] === "string") {
@@ -250,9 +250,70 @@ function ensureYourConfigNodeExists() {
                   'height', globalYourConfigNode.scratches[idx].hgt || "150px"
                )
             }
-         })
+         });
 
-         addEventHandlers(globalYourConfigNode)
+         (function () {
+    let presentermodepackagedevelopment = () => {
+        // show the right sidebar
+        if (!$("#red-ui-sidebar-separator").is(":visible")) {
+            RED.actions.invoke("core:toggle-right-sidebar")
+        }
+
+        // show the left sidebar
+        if (!$("#red-ui-sidebar-left-separator").is(":visible")) {
+            RED.actions.invoke("core:toggle-left-sidebar")
+        }
+
+        // show the four panels
+        if (!$('.red-ui-debug-container').is(":visible")) {
+            $('[data-tab-id=debug]').trigger('click')
+        }
+
+        if (!$('#node-input-scratchpad-fields').is(":visible")) {
+            $('[data-tab-id=ScratchPad]').trigger('click')
+        }
+
+        if (!$('#node-input-flowcompare-target-container-div').is(":visible")) {
+            $('[data-tab-id=FlowCompare]').trigger('click')
+        }
+
+        if (!$('#func-flowhub-tabs-content').is(":visible")) {
+            $('[data-tab-id=FlowHubDiff]').trigger('click')
+        }
+
+        // if coming from presentor more, footer might be hidden
+        if (!$('#red-ui-workspace-footer').is(":visible")) {
+            $('#red-ui-workspace-footer').toggle()
+            $('#red-ui-workspace-scroll-h').css('bottom', '36px')
+        }
+    }
+
+    let actionName = "presenter-mode:package-development-mode"
+    let modeName = "Package Development"
+
+    RED.actions.remove(actionName)
+
+    if (RED.presenterMode) {
+        RED.presenterMode.add(modeName, presentermodepackagedevelopment)
+
+        RED.actions.add(actionName, () => {
+            presentermodepackagedevelopment()
+            RED.notify(`Activated ${modeName} mode`, { type: "success" })
+        })
+    } else {
+        RED.events.on("presenter-mode:initialised", () => {
+            RED.actions.add(actionName, () => {
+                presentermodepackagedevelopment()
+                RED.notify(`Activated ${modeName} mode`, { type: "success" })
+            })
+
+            RED.presenterMode.add(modeName, presentermodepackagedevelopment)
+        })
+    }
+})();
+
+
+         addEventHandlers(globalYourConfigNode);
       }
       RED.events.on('flows:loaded', initialiseSidebarForm);
    };
