@@ -18,6 +18,8 @@ Use the add button to create new scratch-pads and use the delete button to remov
 
 A trashcan clears the contents of the scratch-pad but does not remove the scratch-pad.
 
+If adding new scratches and nodes are selected, then the nodes content will be used to fill the scratches created. One scratch per node is created.
+
 ### Copy & Paste
 
 ![img](https://cdn.openmindmap.org/content/scratchpad-copy-and-paste.png)

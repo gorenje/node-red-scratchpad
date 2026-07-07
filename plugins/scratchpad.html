@@ -143,10 +143,11 @@ function addEventHandlers(cfgnode) {
     })
 }
 
-function addScratch() {
-    $('#node-input-scratchpad-fields').append(
-        $($('[data-template-name="ScratchPad-empty-field"]').html()).data("shown", true)[0].outerHTML
+function addScratch(content) {
+    $('#node-input-scratchpad-fields').prepend(
+        $('[data-template-name="ScratchPad-empty-field"]').html()
     )
+    $($('#node-input-scratchpad-fields').find('.scratchpad-content-field')[0]).val(content)
 }
 
 function ensureYourConfigNodeExists() {
@@ -222,7 +223,26 @@ function ensureYourConfigNodeExists() {
       $('#node-input-scratchpad-add-btn').on('click', e => {
          if ( e ) { e.preventDefault() }
 
-         addScratch()
+         if (RED.view.selection().nodes) {
+            RED.view.selection().nodes.forEach( nde => {
+               let content = ""
+               if (nde.type == "template" || nde.type == "PkgFile") {
+                  content = nde.template
+               } else if (nde.type == "function") {
+                  content = nde.func
+               } else if (nde.type == "ClientCode") {
+                  content = nde.clientcode
+               } else if (typeof nde._def.info === "function") {
+                  content = nde._def.info.call(nde)
+               } else {
+                  content = nde.info
+               }
+               addScratch(content)
+            })
+         } else {
+            addScratch()
+         }
+         
          addEventHandlers(globalYourConfigNode)
       });
 
