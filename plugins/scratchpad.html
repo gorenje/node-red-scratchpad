@@ -232,6 +232,8 @@ function ensureYourConfigNodeExists() {
                   content = nde.func
                } else if (nde.type == "ClientCode") {
                   content = nde.clientcode
+               } else if (nde._def.category === "mindmap") {
+                  content = nde._def.generateMarkdown.call(nde)
                } else if (typeof nde._def.info === "function") {
                   content = nde._def.info.call(nde)
                } else {
