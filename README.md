@@ -40,6 +40,13 @@ Compare two scratch-pads for difference. Use the compare button first by highlig
 
 Contents of scratch-pads can be stored for later usage. Use the save button to store the content into the flows.json file for later usage.
 
+### Execute code in the browser
+
+![img](https://cdn.openmindmap.org/content/1786606905105_Screenshot_2026-08-13_at_09.41.18.png)
+
+Contents of the scratch is intrepreted as Javascript code and executed directly in the browser. In the example in the screenshot, it a code snippet for highlighting the immediate nodes connected to the selected node.
+
+
 ## Artifacts
 
 - [@ flowhub.org](https://flowhub.org/f/cbd4eeb40f5d6e10)

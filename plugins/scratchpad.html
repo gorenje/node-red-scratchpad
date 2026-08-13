@@ -141,6 +141,23 @@ function addEventHandlers(cfgnode) {
             }
         })
     })
+
+    $('.scratchpad-execute-btn').off('click')
+    $('.scratchpad-execute-btn').on('click', e => {
+        if (e) { e.preventDefault() }
+
+        $(".scratchpad-execute-btn").map((idx, obj) => {
+            if (obj == e.target) {
+                let content = $($($(e.target).closest(".scratchpad-content")).find(".scratchpad-content-field")).val()
+                if (content) {
+                    (function(){
+                        eval(content)
+                    })()
+                    RED.notify("Content executed", { type: "success" });
+                }
+            }
+        })
+    })    
 }
 
 function addScratch(content) {
@@ -368,6 +385,7 @@ function ensureYourConfigNodeExists() {
          <button title="Copy" class="scratchpad-copy-btn button"><i class="fa fa-copy button-icon"></i></button>
          <button title="Compare" class="scratchpad-compare-btn button"><i class="fa fa-balance-scale button-icon"></i></button>
          <button title="Delete" class="scratchpad-close-btn button"><i class="fa fa-close button-icon"></i></button>
+         <button title="Browser Execute" class="scratchpad-execute-btn button"><i class="fa fa-play button-icon"></i></button>
       </div>
    </div>
 </script>
