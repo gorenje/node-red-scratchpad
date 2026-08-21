@@ -46,6 +46,13 @@ Contents of scratch-pads can be stored for later usage. Use the save button to s
 
 Contents of the scratch is intrepreted as Javascript code and executed directly in the browser. In the example in the screenshot, it a code snippet for highlighting the immediate nodes connected to the selected node.
 
+### Comparing switch and change nodes
+
+![img](https://cdn.openmindmap.org/content/1787302427320_Screen_Recording_2026-08-21_at_10.51.25.gif)
+
+Sometimes its useful to compare switch or change nodes, using scratchpad this is now possible. What the animation shows is adding a scratch when a nodes is selected: the contents of the node is automatically imported. This can be done with switch and change nodes and their JSON representations are imported.
+
+This JSON representation can then be compared to check for differences. In the case of the animation, only the id and position of the nodes differ, not the rules. Hence one of the nodes can be replaced with the other.
 
 ## Artifacts
 
